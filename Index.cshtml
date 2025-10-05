@@ -1,0 +1,27 @@
+@model IEnumerable<AzureTableMvc.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<p><a href="/Table/Create">Create new product</a></p>
+
+<table>
+    <thead>
+        <tr><th>Partition</th><th>Row</th><th>Name</th><th>Qty</th><th>Price</th><th>Clearance</th></tr>
+    </thead>
+    <tbody>
+@foreach(var p in Model) {
+    <tr>
+        <td>@p.PartitionKey</td>
+        <td>@p.RowKey</td>
+        <td>@p.Name</td>
+        <td>@p.Quantity</td>
+        <td>@p.Price</td>
+        <td>@p.Clearance</td>
+    </tr>
+}
+    </tbody>
+</table>
